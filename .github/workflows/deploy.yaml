@@ -15,19 +15,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
-    #  - name: Add SSH key
-    #    env:
-    #        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-    #    run: |
-    #        mkdir -p /home/runner/.ssh
-    #        ssh-keyscan github.com >> /home/runner/.ssh/known_hosts
-    #        echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/.ssh/longread
-    #        echo "${{ secrets.SSH_CONFIG }}" > /home/runner/.ssh/config
-    #        chmod 600 /home/runner/.ssh/longread
-    #        chmod 600 /home/runner/.ssh/config
-    #  - name: Install
-    #    run:  npm install
-    #  - name: Build the project
-    #    run:  npx vite build
-    #  - name: Deploy pages
-    #    run:  GH_TOKEN="${{ secrets.PROJECT_TOKEN }}" npx gh-pages -d build --nojekyll -u "Author <user@server.com>" -r gh:yababay/singulanity.git
+      - name: Add SSH key
+        env:
+            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+            mkdir -p /home/runner/.ssh
+            ssh-keyscan github.com >> /home/runner/.ssh/known_hosts
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > /home/runner/.ssh/longread
+            echo "${{ secrets.SSH_CONFIG }}" > /home/runner/.ssh/config
+            chmod 600 /home/runner/.ssh/longread
+            chmod 600 /home/runner/.ssh/config
+      - name: Install
+        run:  npm install
+      - name: Build the project
+        run:  npx vite build
+      - name: Deploy pages
+        run:  GH_TOKEN="${{ secrets.PROJECT_TOKEN }}" npx gh-pages -d build --nojekyll -u "Author <user@server.com>" -r gh:yababay/singulanity.git
