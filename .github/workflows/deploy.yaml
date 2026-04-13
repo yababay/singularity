@@ -30,4 +30,4 @@ jobs:
       - name: Build the project
         run:  npx vite build
       - name: Deploy pages
-        run:  GH_TOKEN="${{ secrets.PROJECT_TOKEN }}" npx gh-pages -d build --nojekyll -u "Author <user@server.com>" -r gh:yababay/singulanity.git
+        run:  GH_TOKEN="${{ secrets.PROJECT_TOKEN }}" npx gh-pages -d build --nojekyll -u "Author <user@server.com>" -r gh:yababay/singularity.git
